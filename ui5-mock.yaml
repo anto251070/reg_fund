@@ -1,0 +1,65 @@
+specVersion: "2.6"
+metadata:
+  name: ch.unige.regfund.zregfundgen2
+type: application
+server:
+  customMiddleware:
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        ignoreCertError: false
+        ui5:
+          path:
+            - /resources
+            - /test-resources
+          url: https://ui5.sap.com
+        backend:
+          - path: /sap
+            url: http://rubis-s4t.unige.ch:443
+            client: "200"
+            destination: UNIGE_S4D
+    - name: fiori-tools-appreload
+      afterMiddleware: compression
+      configuration:
+        port: 35729
+        path: webapp
+        delay: 300
+    - name: sap-fe-mockserver
+      beforeMiddleware: csp
+      configuration:
+        mountPath: /
+        services:
+          - urlPath: /sap/opu/odata/sap/ZUI_GENERICS_FUNDS
+            metadataPath: ./webapp/localService/metadata.xml
+            mockdataPath: ./webapp/localService/data
+            generateMockData: true
+        annotations: []
+        service:
+          - urlPath: /sap/opu/odata/sap/ZUI_GENERICS_FUNDS
+            generateMockData: true
+            metadataXmlPath: ./webapp/localService/metadata.xml
+            mockdataRootPath: ./webapp/localService/data
+          - urlPath: /sap/opu/odata/sap/Z_GENERIC_FUNDS_REGUL_SRV/
+            metadataXmlPath: ./webapp/localService/Z_GENERIC_FUNDS_REGUL_SRV.xml/metadata.xml
+            mockdataRootPath: ./webapp/localService/Z_GENERIC_FUNDS_REGUL_SRV.xml/mockdata
+            generateMockData: true
+          - urlPath: /sap/opu/odata/sap/ZUI_GENERICS_FUNDS/
+            metadataXmlPath: ./webapp/localService/metadata.xml
+            mockdataRootPath: ./webapp/localService/mockdata
+            generateMockData: true
+          - urlPath: /sap/opu/odata/sap/Z_PROJECT_WBS_SBIND/
+            metadataXmlPath: ./webapp/localService/Z_PROJECT_WBS_SBIND.xml/metadata.xml
+            mockdataRootPath: ./webapp/localService/Z_PROJECT_WBS_SBIND.xml/mockdata
+            generateMockData: true
+          - urlPath: /sap/opu/odata/sap/Z_WBS_ELEMENT_SBIND/
+            metadataXmlPath: ./webapp/localService/Z_WBS_ELEMENT_SBIND.xml/metadata.xml
+            mockdataRootPath: ./webapp/localService/Z_WBS_ELEMENT_SBIND.xml/mockdata
+            generateMockData: true
+          - urlPath: /sap/opu/odata/sap/Z_BUDGET_ACCOUNT_SBIND/
+            metadataXmlPath: ./webapp/localService/Z_BUDGET_ACCOUNT_SBIND.xml/metadata.xml
+            mockdataRootPath: ./webapp/localService/Z_BUDGET_ACCOUNT_SBIND.xml/mockdata
+            generateMockData: true
+          - urlPath: /sap/opu/odata/sap/ZSB_GESTION_ACCES/
+            metadataXmlPath: ./webapp/localService/ZSB_GESTION_ACCES.xml/metadata.xml
+            mockdataRootPath: ./webapp/localService/ZSB_GESTION_ACCES.xml/mockdata
+            generateMockData: true

@@ -1,0 +1,48 @@
+{
+    "name": "z_reg_fund_gen2",
+ 
+    "dependencies": {
+        "@sap/approuter": "^9.1.0"
+      },
+    "version": "0.0.1",
+    "private": true,
+    "description": "Pièces à Régulariser ",
+    "keywords": [
+        "ui5",
+        "openui5",
+        "sapui5"
+    ],
+    "main": "webapp/index.html",
+    "devDependencies": {
+        "@sap-ux/ui5-middleware-fe-mockserver": "^2.1.112",
+        "@sap/ui5-builder-webide-extension": "^1.1.8",
+        "@sap/ux-specification": "^1.108.8",
+        "@sap/ux-ui5-tooling": "^1.10.1",
+        "@ui5/cli": "^3.3.0",
+        "mbt": "^1.2.18",
+        "ui5-task-zipper": "^0.5.0"
+    },
+    "scripts": {
+        "start": "node node_modules/@sap/approuter/approuter.js",
+        "start-local": "fiori run --config ./ui5-local.yaml --open \"test/flpSandbox.html?sap-client=200&sap-ui-xx-viewCache=false#chunigeregfundzregfundgen2-tile\"",
+        "build": "ui5 build --config=ui5.yaml --clean-dest --dest dist",
+        "deploy": "fiori cfDeploy",
+        "deploy-config": "fiori add deploy-config",
+        "start-noflp": "fiori run --open \"index.html?sap-client=200&sap-ui-xx-viewCache=false\"",
+        "start-mock": "fiori run --config ./ui5-mock.yaml --open \"test/flpSandbox.html?sap-client=200&sap-ui-xx-viewCache=false#chunigeregfundzregfundgen2-tile\"",
+        "start-variants-management": "fiori run --open \"preview.html?&sap-client=200&sap-ui-xx-viewCache=false&fiori-tools-rta-mode=true&sap-ui-rta-skip-flex-validation=true#preview-app\"",
+        "build:cf": "ui5 build preload --clean-dest --config ui5-deploy.yaml --include-task=generateCachebusterInfo",
+        "build:mta": "rimraf resources mta_archives && mbt build",
+        "undeploy": "cf undeploy chunigeregfundzregfundgen2 --delete-services --delete-service-keys --delete-service-brokers"
+       
+    },
+    "sapux": true,
+    "sapuxLayer": "CUSTOMER_BASE",
+    "ui5": {
+        "dependencies": [
+            "@sap/ui5-builder-webide-extension",
+            "ui5-task-zipper",
+            "mbt"
+        ]
+    }
+}
