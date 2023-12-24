@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://rubis-s4d.unige.ch:443/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://rubis-s4d.unige.ch:443/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://rubis-s4d.unige.ch:443/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://rubis-s4d.unige.ch:443/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://rubis-s4d.unige.ch:443/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://rubis-s4d.unige.ch:443/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://rubis-s4d.unige.ch:443/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://rubis-s4d.unige.ch:443/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://rubis-s4d.unige.ch:443/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://rubis-s4d.unige.ch:443/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="cds_z_budget_account_sdef" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <EntityType Name="ZI_BudgetAccountType" sap:label="Budget Ledger Account" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="GLAccount"/>
+                    <PropertyRef Name="CompanyCode"/>
+                </Key>
+                <Property Name="GLAccount" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="GLAccount_Text" sap:label="G/L Account" sap:quickinfo="G/L Account Number"/>
+                <Property Name="GLAccount_Text" Type="Edm.String" MaxLength="20" sap:label="G/L Account Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Company Code"/>
+                <Property Name="ChartOfAccounts" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:text="ChartOfAccounts_Text" sap:label="Chart of Accounts"/>
+                <Property Name="ChartOfAccounts_Text" Type="Edm.String" MaxLength="50" sap:label="Chart Of Accounts Description" sap:quickinfo="Chart of Accounts Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="GLAccountGroup" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Account Group" sap:quickinfo="G/L Account Group"/>
+                <Property Name="CorporateGroupAccount" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Group Account Number"/>
+                <Property Name="AccountIsBlockedForPosting" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Posting Block" sap:quickinfo="Indicator: Is Account Blocked for Posting?"/>
+                <Property Name="AccountIsBlockedForPlanning" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Planning Block" sap:quickinfo="Indicator: Account Blocked for Planning ?"/>
+                <Property Name="AccountIsBlockedForCreation" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Creation Block" sap:quickinfo="Indicator: Account Is Blocked for Creation ?"/>
+                <Property Name="IsBalanceSheetAccount" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Balance sheet acct" sap:quickinfo="Indicator: Account is a balance sheet account?"/>
+                <Property Name="AccountIsMarkedForDeletion" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Deletion Flag" sap:quickinfo="Indicator: Account Marked for Deletion?"/>
+                <Property Name="PartnerCompany" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Trading Partner No." sap:quickinfo="Company ID of Trading Partner"/>
+                <Property Name="FunctionalArea" Type="Edm.String" MaxLength="16" sap:display-format="UpperCase" sap:label="Functional Area"/>
+                <Property Name="CreationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Created on" sap:quickinfo="Date on which the Record Was Created"/>
+                <Property Name="SampleGLAccount" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Sample Account" sap:quickinfo="Number of the Sample Account"/>
+                <Property Name="IsProfitLossAccount" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Balance Sheet Account" sap:quickinfo="Indicator: Account is a balance sheet account?"/>
+                <Property Name="CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Created by" sap:quickinfo="Name of Person who Created the Object"/>
+                <Property Name="ProfitLossAccountType" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="P&amp;L state. acct" sap:quickinfo="P&amp;L statement account type"/>
+                <Property Name="ReconciliationAccountType" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Reconcil.ID" sap:quickinfo="Account is Reconciliation Account"/>
+                <Property Name="LineItemDisplayIsEnabled" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Line Items" sap:quickinfo="Indicator: Can Line Items Be Displayed by Account?"/>
+                <Property Name="IsOpenItemManaged" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="OI Management" sap:quickinfo="Indicator: Open Item Management?"/>
+                <Property Name="AlternativeGLAccount" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Altern. Account" sap:quickinfo="Alternative Account Number in Company Code"/>
+                <Property Name="AcctgDocItmDisplaySequenceRule" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Sort key" sap:quickinfo="Key for sorting according to assignment numbers"/>
+                <Property Name="GLAccountExternal" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="G/L Acct External ID" sap:quickinfo="G/L Account Number"/>
+                <Property Name="CountryChartOfAccounts" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Alternative COA" sap:quickinfo="Alternative Chart of Accounts"/>
+                <Property Name="AuthorizationGroup" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Authorization" sap:quickinfo="Authorization Group"/>
+                <Property Name="TaxCategory" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Tax Category" sap:quickinfo="Tax Category in Account Master Record"/>
+                <Property Name="IsAutomaticallyPosted" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Auto. Posting" sap:quickinfo="Indicator: Is Account only Posted to Automatically?"/>
+            </EntityType>
+            <EntityContainer Name="cds_z_budget_account_sdef_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZI_BudgetAccount" EntityType="cds_z_budget_account_sdef.ZI_BudgetAccountType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+            </EntityContainer>
+            <Annotations Target="cds_z_budget_account_sdef.cds_z_budget_account_sdef_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+            </Annotations>
+            <Annotations Target="cds_z_budget_account_sdef.cds_z_budget_account_sdef_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Org.OData.Capabilities.V1.BatchSupport">
+                    <Record Type="Org.OData.Capabilities.V1.BatchSupportType">
+                        <PropertyValue Property="ReferencesAcrossChangeSetsSupported" Bool="true"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="https://rubis-s4d.unige.ch:443/sap/opu/odata/sap/Z_BUDGET_ACCOUNT_SBIND/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://rubis-s4d.unige.ch:443/sap/opu/odata/sap/Z_BUDGET_ACCOUNT_SBIND/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
