@@ -1,0 +1,401 @@
+{
+    "_version": "1.49.0",
+    "sap.app": {
+        "id": "ch.unige.regfund.zregfundgen2",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:lrop",
+            "version": "1.10.0",
+            "toolsId": "baf13458-ec1d-47f2-aeb4-17f38807d9cf"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/sap/opu/odata/sap/ZUI_GENERICS_FUNDS/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [
+                        "ZUI_GENERICS_FUNDS_VAN",
+                        "annotation"
+                    ],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZUI_GENERICS_FUNDS_VAN": {
+                "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZUI_GENERICS_FUNDS_VAN',Version='0001')/$value/",
+                "type": "ODataAnnotation",
+                "settings": {
+                    "localUri": "localService/ZUI_GENERICS_FUNDS_VAN.xml"
+                }
+            },
+            "annotation": {
+                "type": "ODataAnnotation",
+                "uri": "annotations/annotation.xml",
+                "settings": {
+                    "localUri": "annotations/annotation.xml"
+                }
+            },
+            "Z_GENERIC_FUNDS_REGUL_SRV": {
+                "uri": "/sap/opu/odata/sap/Z_GENERIC_FUNDS_REGUL_SRV/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/Z_GENERIC_FUNDS_REGUL_SRV.xml/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZSB_GESTION_ACCES": {
+                "uri": "/sap/opu/odata/sap/ZSB_GESTION_ACCES/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [
+                        "ZSB_GESTION_ACCES_Annotation"
+                    ],
+                    "localUri": "localService/ZSB_GESTION_ACCES.xml/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "Regularize": {
+                "uri": "model/Regularize.json",
+                "type": "JSON"
+            },
+            "Total": {
+                "uri": "model/Total.json",
+                "type": "JSON"
+            },
+            "Files": {
+                "uri": "model/Files.json",
+                "type": "JSON"
+            },
+
+
+            "OTPFilter": {
+                "uri": "model/OTPFilter.json",
+                "type": "JSON"
+            },
+
+
+
+            "Z_WBS_ELEMENT_SBIND": {
+                "uri": "/sap/opu/odata/sap/Z_WBS_ELEMENT_SBIND/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/Z_WBS_ELEMENT_SBIND.xml/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "Z_BUDGET_ACCOUNT_SBIND": {
+                "uri": "/sap/opu/odata/sap/Z_BUDGET_ACCOUNT_SBIND/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/Z_BUDGET_ACCOUNT_SBIND.xml/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZSB_GESTION_ACCES_Annotation": {
+                "uri": "/destinations/UNIGE_S4HANA/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZSB_GESTION_ACCES_VAN',Version='0001')/$value/",
+                "type": "ODataAnnotation",
+                "settings": {
+                    "localUri": "localService/ZSB_GESTION_ACCES.xml/ZSB_GESTION_ACCES_Annotation.xml"
+                }
+            },
+
+            "ZSB_WBSELEMENTDATA_REG_FG": {
+                "uri": "/sap/opu/odata/sap/ZSB_WBSELEMENTDATA_REG_FG/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZSB_WBSELEMENTDATA_REG_FG.xml",
+                    "odataVersion": "2.0"
+                }
+            }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "ch-unige-regfund-zregfundgen2-inbound": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "zfi_reg_fonds",
+                    "action": "save",
+                    "title": "{{flpTitle}}",
+                    "subTitle": "{{flpSubtitle}}",
+                    "icon": ""
+                }
+            },
+            "outbounds": {
+                "NavigationID": {
+                    "semanticObject": "zfi_reg_fonds",
+                    "action": "save"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.115.0",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.ushell": {},
+                "sap.f": {},
+                "sap.ui.comp": {},
+                "sap.ui.generic.app": {},
+                "sap.suite.ui.generic.template": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "ch.unige.regfund.zregfundgen2.i18n.i18n"
+                }
+            },
+            "Regularize": {
+                "type": "sap.ui.model.json.JSONModel",
+                "dataSource": "Regularize"
+            },
+            "Total": {
+                "type": "sap.ui.model.json.JSONModel",
+                "dataSource": "Total"
+            },
+            "Files": {
+                "type": "sap.ui.model.json.JSONModel",
+                "dataSource": "Files"
+            },
+
+            "OTPFilter": {
+                "type": "sap.ui.model.json.JSONModel",
+                "dataSource": "OTPFilter"
+            },
+ 
+
+            "": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "@i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            },
+            "Z_GENERIC_FUNDS_REGUL_SRV": {
+                "dataSource": "Z_GENERIC_FUNDS_REGUL_SRV",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "Z_WBS_ELEMENT_SBIND": {
+                "dataSource": "Z_WBS_ELEMENT_SBIND",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "Z_BUDGET_ACCOUNT_SBIND": {
+                "dataSource": "Z_BUDGET_ACCOUNT_SBIND",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "ZSB_GESTION_ACCES": {
+                "dataSource": "ZSB_GESTION_ACCES",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+
+              "ZSB_WBSELEMENTDATA_REG_FG" : {
+                "dataSource": "ZSB_WBSELEMENTDATA_REG_FG",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            }
+
+        },
+		"resources": {
+			"css": []
+		},
+		"routing": {
+			"config": {},
+			"routes": [],
+			"targets": {}
+		},
+        "extends": {
+            "extensions": {
+                "sap.ui.controllerExtensions": {
+                    "sap.suite.ui.generic.template.ListReport.view.ListReport": {
+                        "controllerName": "ch.unige.regfund.zregfundgen2.ext.controller.ListReportExt"
+                    },
+                    "sap.suite.ui.generic.template.ObjectPage.view.Details": {
+                        "controllerName": "ch.unige.regfund.zregfundgen2.ext.controller.ObjectPageExt",
+                        "sap.ui.generic.app": {
+                            "ZUI_GENERICS_FUNDS": {
+                                "EntitySet": "GenericFunds",
+                                "Header": {
+                                    "Actions": {
+                                        "id_Regulariser": {
+                                            "id": "id_RegulariserButton",
+                                            "text": "Regulariser",
+                                            "press": "post_regularise",
+                                            "requiresSelection": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "sap.ui.viewExtensions": {
+                    "sap.suite.ui.generic.template.ListReport.view.ListReport": {
+                        "SmartFilterBarControlConfigurationExtension|GenericFunds": {
+                            "className": "sap.ui.core.Fragment",
+                            "fragmentName": "ch.unige.regfund.zregfundgen2.ext.fragment.Customfilters",
+                            "type": "XML"
+                        }
+                    },
+                    "sap.suite.ui.generic.template.ObjectPage.view.Details": {
+                        "AfterFacet|GenericFunds|INFOS1": {
+                            "type": "XML",
+                            "className": "sap.ui.core.Fragment",
+                            "fragmentName": "ch.unige.regfund.zregfundgen2.ext.fragment.CreateReg",
+                            "sap.ui.generic.app": {
+                                "title": "Postes"
+                            }
+                        },
+                        "ReplaceFacet|GenericFunds|ATTACH": {
+                            "type": "XML",
+                            "className": "sap.ui.core.Fragment",
+                            "fragmentName": "ch.unige.regfund.zregfundgen2.ext.fragment.Attachment",
+                            "sap.ui.generic.app": {
+                                "title": "Pièces jointes"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+
+    "sap.ui.generic.app": {
+        "_version": "1.3.0",
+        "settings": {
+            "forceGlobalRefresh": false,
+            "objectPageHeaderType": "Dynamic",
+            "considerAnalyticalParameters": true,
+            "showDraftToggle": false
+        },
+        "pages": {
+            "ListReport|GenericFunds": {
+                "entitySet": "GenericFunds",
+                "component": {
+                    "name": "sap.suite.ui.generic.template.ListReport",
+                    "list": true,
+                    "settings": {
+                        "condensedTableLayout": true,
+                        "smartVariantManagement": true,
+                        "enableTableFilterInPageVariant": true,
+                        "filterSettings": {
+                            "dateSettings": {
+                                "useDateRange": true
+                            }
+                        },
+                        "dataLoadSettings": {
+                            "loadDataOnAppLaunch": "always"
+                        },
+                        "tableSettings": {
+                            "multiSelect": false,
+                            "type": "ResponsiveTable"
+                        }
+                    }
+                },
+                "pages": {
+                    "ObjectPage|GenericFunds": {
+                        "entitySet": "GenericFunds",
+                        "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
+                        "component": {
+                            "name": "sap.suite.ui.generic.template.ObjectPage"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    
+    "sap.fiori": {
+        "registrationIds": [],
+        "archeType": "transactional"
+    },
+
+    "sap.cloud": {
+        "public": true,
+        "service": "chunigeregfundzregfundgen2"
+    }
+}
