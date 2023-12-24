@@ -1,0 +1,23 @@
+
+{
+  "Societe": "",
+  "Documentnumber": "",
+  "Gjahr": "",
+ 
+
+	"toItems": [{
+    "Documentnumber": "",
+    "Societe": "",
+    "Gjahr": "",
+    "Wbselement": "",
+    "Montant": "",
+    "Divise": "",
+    "Txt": "",
+    "Centre": "",
+    "Compte": "" 
+ 		}],
+
+  "toFiles": []
+ 
+}
+
