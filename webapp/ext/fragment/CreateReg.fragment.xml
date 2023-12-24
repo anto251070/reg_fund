@@ -1,0 +1,116 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+>
+    <Table
+        id="ch.unige.regfund.zregfundgen2.Items.Table"
+        alternateRowColors="true" 
+        growing="true"
+        growingThreshold="10"
+        paste="onPaste"
+        selectionChange="onSelectionChanged"
+        items="{Regularize>/toItems}" >
+
+        <headerToolbar>
+
+                           <OverflowToolbar id="ch.unige.regfund.zregfundgen2.Toolbar">
+                                                     <Text  id="ch.unige.fi.zregfundgen2.ajout.TxT" text="Ajouter"/>
+                                                    <OverflowToolbarButton id="ch.unige.fi.zregfundgen2.ButtonAdd" 
+                                                    icon="sap-icon://add" text="Ajouter Poste" iconFirst="false" type="Reject"
+                                                     press="addRow"/>
+                                                   
+                                                    <ToolbarSpacer id="_IDGenToolbarSpacer10" />
+                                                    <Text id="ch.unige.regfund.zregfundgen2txt.Total.TxT"      text="Total"/>
+                                                    <Text id="ch.unige.regfund.zregfundgen2txt.Total"          text="{path: 'Total>/Total_Reg'}" />
+                                                    <Text id="ch.unige.regfund.zregfundgen2txt.Total.Divise"   text=" / " /> 
+                                                    <Text id="ch.unige.regfund.zregfundgen2txt.Total.Items"    text="{path: 'Total>/Total'}" />
+
+
+                                                    <ToolbarSpacer id="_IDGenToolbarSpacer1" />
+                                                    <SearchField id="_IDGenSearchField1" width="17.5rem"  liveChange="onFilter" />
+
+
+
+                                                    <OverflowToolbarButton id="_IDGenOverflowToolbarButton4" tooltip="Sort"
+                                                        text="Sort" press="onSort"  icon="sap-icon://sort" />
+                       
+                                                    <OverflowToolbarButton id="_IDGenOverflowToolbarButton1" tooltip="Export"
+                                                         text="Export"
+                                                         icon="sap-icon://excel-attachment" press="onExport"/>
+
+                                                </OverflowToolbar>
+             
+                                 </headerToolbar>
+
+
+
+                                        <columns>
+                                                <Column id="ch.unige.regfund.zregfundgen2.column0" width="3%">
+                                                    <Text id="ch.unige.regfund.zregfundgen2.label0" text=""  width="3rem" />
+                                                </Column>
+                                                <Column id="ch.unige.regfund.zregfundgen2.IDGenColumn1"  width="25%" hAlign="Center">
+                                                    <Text id="ch.unige.regfund.zregfundgen2.IDGenText1" text="Compte général" />
+                                                </Column>
+                                                <Column id="ch.unige.regfund.zregfundgen2.IDGenColumn2" minScreenWidth="Tablet" demandPopin="true"  width="8%"   hAlign="Center">
+                                                    <Text id="ch.unige.regfund.zregfundgen2.IDGenText2" text="Montant" />
+                                                </Column>
+                                                <Column  id="ch.unige.regfund.zregfundgen2.IDGenColumn21"  width="5%"  demandPopin="true"   hAlign="Center"   >
+                                                 <Text  id="ch.unige.regfund.zregfundgen2.IDGenText21"  text="Divise"  />
+                                            </Column>
+                                                <Column id="ch.unige.regfund.zregfundgen2.IDGenColumn3" minScreenWidth="Tablet" demandPopin="true" width="37%"  hAlign="Center">
+                                                    <Text id="ch.unige.regfund.zregfundgen2.IDGenText3" text="Texte de poste" />
+                                                </Column>
+                                                <Column id="ch.unige.regfund.zregfundgen2.IDGenColumn4"  minScreenWidth="Tablet" demandPopin="true"  width="22%" hAlign="Center">
+                                                    <Text id="ch.unige.regfund.zregfundgen2.IDGenText4" text="Elément d’OTP" />
+                                                </Column>
+                                            </columns>
+
+
+               
+                        <items>
+                            <ColumnListItem  id="ch.unige.regfund.zregfundgen2.ColumnListItem1"  vAlign="Middle"     >
+                                <cells>
+                                    <Button icon="sap-icon://delete" press="deleteRow" type="Reject"/>
+
+                                     <!--    <Input  id="_IDGenObjectIdentifier1"  
+                                        value="{Regularize>Compte}" -->
+ 
+
+                                        <Text  id="_IDGenObjectIdentifier1"   text="{Regularize>Compte}"
+                                        textAlign="Right" width="100%" class="sapUiSmallMargin" />
+
+                                <!--      <Input  id="_IDGenObjectIdentifier1"  
+                                        value="{Regularize>Compte}"
+                                             valueHelpRequest="onCONFilterSelect"  
+                                        showValueHelp="true"
+                                        textAlign="Right" width="100%" class="sapUiSmallMargin" /> -->
+
+
+
+                                        <Input  id="ch.unige.regfund.zregfundgen2.montant"                    
+                                            value="{
+                                            parts:[
+                                            {path:'Regularize>Montant'} 
+                                            ],
+                                            type: 'sap.ui.model.type.Currency',
+                                            formatOptions:{
+                                            showMeasure: false
+                                            }}" 
+                                            liveChange = "onCalculateTotalItems" 
+                                            textAlign="Right" width="100%" class="sapUiSmallMargin" />
+
+                                            
+
+                                    <Text id="ch.unige.regfund.zregfundgen2.divise"  text="{Regularize>Divise}" />    
+
+                                    <Text  id="inputtxt"    text="{Regularize>Txt}"/>
+                                
+                                    <Input id="inputwbs"    value="{Regularize>Wbselement}"   
+                                        textAlign="Right"    valueHelpRequest="onODPFilterSelect" showValueHelp="true" />
+                
+                                    
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+    </Table>
+</core:FragmentDefinition>

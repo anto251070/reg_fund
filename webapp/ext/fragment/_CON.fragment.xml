@@ -1,0 +1,64 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core"  >
+
+		<Dialog id="ch.unige.regfund.zregfundgen2.Dialog.CON"  title="{i18n>CON}">
+		
+		<content>
+			<List id="ch.unige.regfund.zregfundgen2.CONSelectDialog"
+			 mode="SingleSelectMaster" 
+			 headerText="Header" footerText="" backgroundDesign="Solid" showSeparators="All" 
+			 growing="true" growingThreshold="10" growingScrollToLoad="false" 
+			 items="{ path : 'Z_BUDGET_ACCOUNT_SBIND>/ZI_BudgetAccount', 
+			 sorter : { path : 'GLAccount', descending : false } ,
+             parameters: {select: 'GLAccount, GLAccount_Text, GLAccountGroup'}}"
+			 selectionChange="onCONSearchOkButtonPress"
+			 itemPress="onCONOkButtonPress" >
+
+				<headerToolbar>
+					<Toolbar id="ch.unige.regfund.zregfundgen2.CONToolbar.CON"  width="" design="Solid">
+						<content>
+							<SearchField id="SearchFieldCON" placeholder="{i18n>searchPlaceholderCON}" 
+							showSearchButton="true" visible="true" width="100%" 
+							liveChange="onCONSearch" search="onCONSearch"/>
+						</content>
+					</Toolbar>
+				</headerToolbar>
+
+				<items>
+					<CustomListItem id="ch.unige.regfund.zregfundgen2.ListItem.CON" type="Active">
+						
+						<HBox id="ch.unige.regfund.zregfundgen2.HBox1.CON">
+						  <VBox id="ch.unige.regfund.zregfundgen2.VBox1.CON" width="100%" 
+							class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom sapUiNoMarginBottom">
+							
+								<FlexBox id="ch.unige.regfund.zregfundgen2.FlexBox1.CON" alignItems="Start" 
+								  justifyContent="SpaceBetween" class="sapUiSmallMarginEnd">
+									<items>
+										<Title id="ch.unige.regfund.zregfundgen2.Title.CON" level="H2" 
+										 text="{Z_BUDGET_ACCOUNT_SBIND>GLAccount}  " textAlign="Left"  />
+		                     
+										 <Label  id="ch.unige.regfund.zregfundgen2.ObjectStatus.CON"   
+									      text="   {Z_BUDGET_ACCOUNT_SBIND>GLAccount_Text}" textAlign="Right" />
+
+
+ 
+									</items>
+								</FlexBox>
+							</VBox>
+
+						</HBox>
+
+					</CustomListItem>
+				</items>
+			</List>
+		</content>
+		<beginButton/>
+
+		<buttons>
+			<Button id="OKButton1.CON"  text="{i18n>okButton}"      width="auto" enabled="true" visible="true" iconDensityAware="false" press="onCONOkButtonPress"/>
+			<Button id="KOnButton2.CON" text="{i18n>cancelButton}"  width="auto" enabled="true" visible="true" iconDensityAware="false" press="onCONCancelButtonPress"/>
+		</buttons>
+		<customHeader/>
+		<endButton/>
+		<subHeader/>
+	</Dialog>
+</core:FragmentDefinition>

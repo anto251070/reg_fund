@@ -1,0 +1,20 @@
+ <core:FragmentDefinition xmlns="sap.m" xmlns:smartfilterbar="sap.ui.comp.smartfilterbar" xmlns:core="sap.ui.core">
+	
+    <smartfilterbar:ControlConfiguration key="OTPFilter" index="1" label="{@i18n>Wbs}" groupId="_BASIC">
+		<smartfilterbar:customControl>
+		       
+	            <Input id="in_otp" valueHelpOnly="false" showValueHelp="true" valueHelpRequest="onValueHelpRequestOTP" maxLength="10"/>
+			   
+		</smartfilterbar:customControl>
+	</smartfilterbar:ControlConfiguration>
+
+
+	<smartfilterbar:ControlConfiguration key="CustomerFilter" index="2" label="{@i18n>Supplier}" groupId="_BASIC">
+		<smartfilterbar:customControl>
+           <Input id="in_customer"  valueHelpOnly="false" showValueHelp="true" valueHelpRequest="onValueHelpRequestCustomer" maxLength="10"/>
+		 
+		</smartfilterbar:customControl>
+	</smartfilterbar:ControlConfiguration>
+		 
+	
+</core:FragmentDefinition>

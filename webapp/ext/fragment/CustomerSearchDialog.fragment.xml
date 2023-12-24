@@ -1,0 +1,76 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core"  >
+	
+	<Dialog id="ch.unige.regfund.zregfundgen2.Dialog"  title="{i18n>Supplier}" >
+		
+		<content>
+			<List id="ch.unige.regfund.zregfundgen2.SupplierSelectDialog"
+			 mode="SingleSelectMaster" 
+			 headerText="Header" footerText="" 
+    		 growing="true" growingThreshold="10" 
+			 items="{ path : 'Z_GENERIC_FUNDS_REGUL_SRV>/Supplier_Set', 
+			 sorter : { path : 'Vendor', descending : false } ,
+             parameters: {select: 'Vendor, Name, Nameup, Street, Postalcode, City, Country'}}"
+			 selectionChange="onCustomerSearchOkButtonPress"
+			 itemPress="onCustomerOkButtonPress" >
+
+				<headerToolbar>
+					<Toolbar id="ch.unige.regfund.zregfundgen2.CustomerToolbar" width="" design="Solid">
+						<content>
+							<SearchField id="SearchFieldCustomer" placeholder="{i18n>searchPlaceholderODP}" 
+							showSearchButton="true" visible="true" width="100%" 
+							liveChange="onCustomerSearch" search="onCustomerSearch"/>
+
+						</content>
+					</Toolbar>
+				</headerToolbar>
+
+				<items>
+					<CustomListItem id="ch.unige.regfund.zregfundgen2.ListItem" type="Active" >
+						
+						<HBox id="ch.unige.regfund.zregfundgen2.HBox1">
+						  <VBox id="ch.unige.regfund.zregfundgen2.VBox1" width="100%" 
+							class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom sapUiNoMarginBottom">
+							
+								<FlexBox id="ch.unige.regfund.zregfundgen2.FlexBox1" alignItems="Start" 
+								  justifyContent="SpaceBetween" class="sapUiSmallMarginEnd">
+									<items>
+										<Title id="ch.unige.regfund.zregfundgen2.Title" level="H3" 
+										 text="{Z_GENERIC_FUNDS_REGUL_SRV>Vendor}  " textAlign="Left"  />
+		                            	<ObjectStatus id="_IDGenObjectStatus1" class="sapUiSmallMarginBegin" text="{Z_GENERIC_FUNDS_REGUL_SRV>Name}" state="Success" />
+									</items>
+								</FlexBox>
+							</VBox>
+						</HBox>
+
+						<HBox id="ch.unige.regfund.zregfundgen2.HBox2" >
+							
+							<VBox id="ch.unige.regfund.zregfundgen2.VBox2" width="100%" 
+							 class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom sapUiNoMarginTop">
+								<FlexBox id="ch.unige.regfund.zregfundgen2.FlexBox2" alignItems="Start" 
+								 justifyContent="SpaceBetween" class="sapUiSmallMarginEnd">
+									<items>
+										<Label id="ch.unige.regfund.zregfundgen2.Label" 
+										 text="Fond {Z_GENERIC_FUNDS_REGUL_SRV>Street} - {Z_GENERIC_FUNDS_REGUL_SRV>Postalcode}" />
+										<Label id="ch.unige.regfund.zregfundgen2.Label3" 
+										 text="{Z_GENERIC_FUNDS_REGUL_SRV>City} - {Z_GENERIC_FUNDS_REGUL_SRV>Country}"   />
+                                    </items>
+								</FlexBox>
+							</VBox>
+
+						</HBox>
+					
+					</CustomListItem>
+				</items>
+			</List>
+		</content>
+		<beginButton/>
+
+		<buttons>
+			<Button id="OKButton1"  text="{i18n>okButton}"       width="auto" enabled="true" visible="true" iconDensityAware="false" press="onCustomerOkButtonPress"/>
+			<Button id="KOnButton2" text="{i18n>cancelButton}"   width="auto" enabled="true" visible="true" iconDensityAware="false" press="onCustomerCancelButtonPress"/>
+		</buttons>
+		<customHeader/>
+		<endButton/>
+		<subHeader/>
+	</Dialog>
+</core:FragmentDefinition>
